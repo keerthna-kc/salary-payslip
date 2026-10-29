@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Payslip</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Employee Payslip</h1>
+
+    <p><strong>Employee ID:</strong> {{ employee.employee_id }}</p>
+    <p><strong>Name:</strong> {{ employee.name }}</p>
+    <p><strong>Designation:</strong> {{ employee.designation }}</p>
+    <p><strong>Salary Month:</strong> {{ month }}</p>
+    <p><strong>Unpaid Leave Days:</strong> {{ leave_days }}</p>
+
+    <h2>Earnings</h2>
+    <p>Basic Salary: ₹{{ "%.2f"|format(basic) }}</p>
+    <p>HRA: ₹{{ "%.2f"|format(hra) }}</p>
+    <p>DA: ₹{{ "%.2f"|format(da) }}</p>
+    <p>Other Allowances: ₹{{ "%.2f"|format(allowances) }}</p>
+    <p><strong>Gross Salary: ₹{{ "%.2f"|format(gross) }}</strong></p>
+
+    <h2>Deductions</h2>
+    <p>PF: ₹{{ "%.2f"|format(pf) }}</p>
+    <p>ESI: ₹{{ "%.2f"|format(esi) }}</p>
+    <p>Leave Deduction: ₹{{ "%.2f"|format(leave_deduction) }}</p>
+
+    <h2>Net Salary: ₹{{ "%.2f"|format(net_salary) }}</h2>
+
+    <button onclick="window.print()">Print Payslip</button>
+    <button onclick="window.location.href='/'">Back</button>
+</div>
+</body>
+</html>

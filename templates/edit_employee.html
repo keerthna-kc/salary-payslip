@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Employee Details</h1>
+
+    <form method="POST">
+        <label>Employee ID</label>
+        <input type="text" value="{{ employee.employee_id }}" disabled>
+
+        <label>Employee Name</label>
+        <input type="text" name="name"
+               value="{{ employee.name }}" required>
+
+        <label>Designation</label>
+        <input type="text" name="designation"
+               value="{{ employee.designation }}" required>
+
+        <label>Joining Date</label>
+        <input type="date" name="joining_date"
+               value="{{ employee.joining_date }}" required>
+
+        <label>Basic Monthly Salary (₹)</label>
+        <input type="number" name="basic_salary"
+               min="0.01" step="0.01"
+               value="{{ employee.basic_salary }}" required>
+
+        <label>HRA (%)</label>
+        <input type="number" name="hra" min="0" step="0.01"
+               value="{{ employee.hra }}" required>
+
+        <label>DA (%)</label>
+        <input type="number" name="da" min="0" step="0.01"
+               value="{{ employee.da }}" required>
+
+        <label>Other Allowances (%)</label>
+        <input type="number" name="allowances" min="0" step="0.01"
+               value="{{ employee.allowances }}" required>
+
+        <label>PF (%)</label>
+        <input type="number" name="pf" min="0" step="0.01"
+               value="{{ employee.pf }}" required>
+
+        <label>ESI (%)</label>
+        <input type="number" name="esi" min="0" step="0.01"
+               value="{{ employee.esi }}" required>
+
+        <button type="submit">Update Employee</button>
+        <a href="/">Cancel and Go Back</a>
+    </form>
+</div>
+</body>
+</html>
